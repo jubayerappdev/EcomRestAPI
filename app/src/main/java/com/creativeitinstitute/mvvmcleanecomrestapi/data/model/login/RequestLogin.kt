@@ -1,4 +1,4 @@
-package com.creativeitinstitute.mvvmcleanecomrestapi.data.model
+package com.creativeitinstitute.mvvmcleanecomrestapi.data.model.login
 
 data class RequestLogin(
     val email: String,
