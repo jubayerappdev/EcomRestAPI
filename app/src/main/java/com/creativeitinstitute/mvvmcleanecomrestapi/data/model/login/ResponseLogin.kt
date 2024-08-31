@@ -1,6 +1,12 @@
 package com.creativeitinstitute.mvvmcleanecomrestapi.data.model.login
 
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
+
+@Keep
 data class ResponseLogin(
-    val access_token: String,
-    val refresh_token: String
+    @SerializedName("access_token")
+    val accessToken: String?=null,
+    @SerializedName("refresh_token")
+    val refreshToken: String?=null
 )
