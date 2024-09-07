@@ -65,7 +65,7 @@ class  LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::
 
 
         }
-//
+
     }
     companion object{
         const val ACCESS_TOKEN = "accessToken"
