@@ -3,8 +3,8 @@ package com.creativeitinstitute.mvvmcleanecomrestapi.views
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.creativeitinstitute.mvvmcleanecomrestapi.data.model.login.RequestLogin
 import com.creativeitinstitute.mvvmcleanecomrestapi.databinding.ActivityMainBinding
+import com.creativeitinstitute.mvvmcleanecomrestapi.views.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

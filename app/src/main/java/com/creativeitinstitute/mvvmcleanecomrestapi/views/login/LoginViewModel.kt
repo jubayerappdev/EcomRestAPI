@@ -1,4 +1,4 @@
-package com.creativeitinstitute.mvvmcleanecomrestapi.views
+package com.creativeitinstitute.mvvmcleanecomrestapi.views.login
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -9,7 +9,6 @@ import com.creativeitinstitute.mvvmcleanecomrestapi.data.model.login.RequestLogi
 import com.creativeitinstitute.mvvmcleanecomrestapi.data.model.login.ResponseLogin
 import com.creativeitinstitute.mvvmcleanecomrestapi.data.repo.PlatziRepository
 import com.creativeitinstitute.mvvmcleanecomrestapi.utils.DataState
-import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -29,23 +28,21 @@ class LoginViewModel @Inject constructor(private val repository: PlatziRepositor
 
         viewModelScope.launch {
 
-          val response =  repository.login(requestLogin)
+          val response =  repository.login(requestLogin).body()
 
-            if (response.isSuccessful){
-                Log.d("TAG", "login:  ${response.body()}")
+
+                Log.d("TAG", "login:  ${response?.accessToken}")
                 try {
-                    val data =  Gson().fromJson(response.body()?.string().toString(), ResponseLogin::class.java)
-                    _loginResponse.postValue(DataState.Success(data))
+
+                    _loginResponse.postValue(DataState.Success(response))
                 }catch (e: Exception){
                     _loginResponse.postValue(DataState.Error("${e.message}"))
                 }
 
-
-            }else{
-                _loginResponse.postValue(DataState.Error(response.message()))
-            }
         }
 
 
     }
+
+
 }

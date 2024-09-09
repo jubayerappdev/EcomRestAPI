@@ -9,7 +9,6 @@ import com.creativeitinstitute.mvvmcleanecomrestapi.data.model.login.RequestLogi
 import com.creativeitinstitute.mvvmcleanecomrestapi.databinding.FragmentLoginBinding
 import com.creativeitinstitute.mvvmcleanecomrestapi.prefs.PrefsManager
 import com.creativeitinstitute.mvvmcleanecomrestapi.utils.DataState
-import com.creativeitinstitute.mvvmcleanecomrestapi.views.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -60,6 +59,8 @@ class  LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::
 
                     Log.d("TAG", "accessToken: ${prefsManager.getPrefs(ACCESS_TOKEN)} ")
                     Log.d("TAG", "refreshToken: ${prefsManager.getPrefs(REFRESH_TOKEN)} ")
+
+                    findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
                 }
             }
 
