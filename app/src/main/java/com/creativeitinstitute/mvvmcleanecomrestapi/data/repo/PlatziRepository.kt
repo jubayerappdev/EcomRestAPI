@@ -2,6 +2,7 @@ package com.creativeitinstitute.mvvmcleanecomrestapi.data.repo
 
 import com.creativeitinstitute.mvvmcleanecomrestapi.data.model.login.RequestLogin
 import com.creativeitinstitute.mvvmcleanecomrestapi.data.model.login.ResponseLogin
+import com.creativeitinstitute.mvvmcleanecomrestapi.data.model.product.ResponseProductItem
 import com.creativeitinstitute.mvvmcleanecomrestapi.data.model.user.ResponseUser
 import com.creativeitinstitute.mvvmcleanecomrestapi.data.network.PlatziSecureService
 import com.creativeitinstitute.mvvmcleanecomrestapi.data.network.PlatziService
@@ -22,5 +23,10 @@ class PlatziRepository @Inject constructor(
     suspend fun getProfile(): Response<ResponseUser> {
 
         return securedService.getProfile()
+    }
+
+    suspend fun getAllProducts(): Response<List<ResponseProductItem>>{
+
+        return service.getAllProducts()
     }
 }
